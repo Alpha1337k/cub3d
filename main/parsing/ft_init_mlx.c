@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 17:48:54 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 16:48:09 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/08/04 22:11:48 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ t_img	ft_load_frame(t_meta *md)
 
 void	ft_init_mlx(t_meta *md)
 {
-	md->win = mlx_new_window(md->mlx, md->res.x, md->res.y, "cube3d");
-	if (md->win == 0)
+	if (!md->arg)
+		md->win = mlx_new_window(md->mlx, md->res.x, md->res.y, "cube3d");
+	if (md->win == 0 && !md->arg)
 		ft_throw_error("mlx window failed to initialize", md);
 	md->i[0] = ft_load_frame(md);
 	md->i[1] = ft_load_frame(md);

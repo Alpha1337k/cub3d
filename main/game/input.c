@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 04:51:54 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 17:32:45 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/08/04 20:00:27 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_move(t_meta *md, t_vec2_d d)
 
 	val = md->map.val[(int)(md->pos.y + d.y / 10)]\
 	[(int)(md->pos.x + d.x / 10)];
-	if (val == '0')
+	if (val == '0' || val == 'N' || val == 'E' || val == 'S' || val == 'W')
 	{
 		md->pos.x += d.x / 10;
 		md->pos.y += d.y / 10;

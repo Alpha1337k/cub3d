@@ -6,7 +6,7 @@
 #    By: alpha_1337 <alpha_1337@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/10 04:46:52 by alpha_1337    #+#    #+#                  #
-#    Updated: 2020/08/04 18:30:32 by okruitho      ########   odam.nl          #
+#    Updated: 2020/08/04 20:06:17 by okruitho      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ fclean:
 	@rm -rf printf/*.o $(PRINTF)
 	@rm -rf gnl/*.o $(GNL)
 	@rm -rf libft/*.o $(LIBFT)
+	@$(MAKE) -C mlx-mac/ clean
 	@rm -rf $(MLX)
 	@rm -rf $(LINUXMLX) minilibx-master/*.o minilibx-master/test/*.o \
 			 minilibx-master/test/mlx-test minilibx-master/libmlx.a

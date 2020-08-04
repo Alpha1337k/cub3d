@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 17:48:13 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/08/04 23:06:37 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,7 @@ t_cast			ft_cast_ray(t_meta *md, t_cast *sprite, t_vec2_d dir, \
 					t_vec2 *t);
 void			ft_draw_vline(int x, t_vec2 c, t_img *img, t_meta *md);
 t_cast			ft_get_cast_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, int spr);
+t_cast			ft_get_sprt_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, t_vec2_d *dir);
 /*
 ** Libft Addons?
 */
