@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 23:06:37 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/17 22:00:39 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ typedef	struct	s_map
 typedef struct	s_meta
 {
 	char		*arg;
+	t_vec2_d	plane;
+	t_vec2_d	dir;
 	double		angle;
 	t_bool		init;
 	int			fc[2];
@@ -132,6 +134,9 @@ typedef struct	s_meta
 	t_tex		tx[5];
 	t_vec2		res;
 	t_vec2_d	pos;
+	double		*z_buf;
+	t_vec2		*spritepos;
+	int			spritecount;
 	void		*mlx;
 	void		*win;
 }				t_meta;

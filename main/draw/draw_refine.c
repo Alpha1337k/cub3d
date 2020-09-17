@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 22:00:03 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 23:36:50 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/17 18:53:19 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,7 @@ t_cast			ft_get_cast_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, int spr)
 t_vec2_d		ft_get_spr_impact(t_meta *md, t_vec2_d *ray, t_vec2_d *dir)
 {
 	// get center spprite
-	t_vec2_d centerspr;
-	centerspr.x = ceil(ray->x) - 0.5;
-	centerspr.y = ceil(ray->y) - 0.5;
-	printf("center middle: [%f][%f] dir: %f\n",centerspr.x,centerspr.y, md->angle - 90);
+
 	// while ()
 	// {
 	// 	/* code */

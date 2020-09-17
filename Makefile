@@ -6,9 +6,11 @@
 #    By: alpha_1337 <alpha_1337@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/10 04:46:52 by alpha_1337    #+#    #+#                  #
-#    Updated: 2020/08/04 20:06:17 by okruitho      ########   odam.nl          #
+#    Updated: 2020/09/17 19:19:02 by okruitho      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
+
+
 
 SRC =	main/parsing/ft_check_input.c	\
 		main/parsing/ft_check_map.c		\
@@ -17,11 +19,7 @@ SRC =	main/parsing/ft_check_input.c	\
 		main/parsing/ft_load_image.c	\
 		main/parsing/ft_parse_input.c	\
 		main/parsing/ft_parse_map.c		\
-		main/draw/algorithm.c			\
-		main/draw/draw_distance.c		\
-		main/draw/draw_refine.c			\
-		main/draw/draw_wall.c			\
-		main/draw/draw.c				\
+		main/drawnew/*.c				\
 		main/game/bmp.c					\
 		main/game/cube3d.c				\
 		main/game/ft_exit.c				\

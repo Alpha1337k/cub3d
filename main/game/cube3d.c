@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:52:25 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 22:17:45 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/17 22:12:43 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	ft_run_loops(t_meta *md)
 		mlx_hook(md->win, 02, 1L << 0, ft_set_keydown, md);
 		mlx_hook(md->win, 03, 1L << 1, ft_set_keyup, md);
 	}
-	printf("cool!\n");
 	mlx_loop_hook(md->mlx, ft_render, md);
 	mlx_loop(md->mlx);
 }
@@ -48,8 +47,19 @@ int		main(int argc, char **argv)
 	ft_print_meta(&md);
 	if (ft_check_input(&md) == 0)
 		ft_exit(&md);
+
 	ft_init_mlx(&md);
 	ft_printf("All Checks completed!\n");
+
+	md.z_buf = malloc(sizeof(double) * 1080);
+	md.spritepos = malloc(sizeof(t_vec2) * 2);
+	md.spritepos[0] = ft_vecmrg(2, 2);
+	// md.spritepos[1] = ft_vecmrg(2, 2);
+	md.spritecount = 2;
+	md.plane.x = 0;
+	md.plane.y = -0.66;
+	md.dir.x = -1;
+	md.dir.y = 0;
 	ft_run_loops(&md);
 	return (0);
 }
