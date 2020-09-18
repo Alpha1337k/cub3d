@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/18 22:41:57 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/19 00:21:19 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,36 @@ typedef struct	s_sprite
 	double		dist;
 }				t_sprite;
 
+typedef struct	s_dda_sprite
+{
+	t_vec2		spritepos;
+	t_vec2		mappos;
+	int			*spriteorder;
+	double		*spritedist;
+	t_vec2_d	spritexy;
+	double		invdet;
+	t_vec2_d	transform;
+	t_vec2		spritescreen;
+	int			movescreen;
+
+}				t_dda_sprite;
+
+typedef struct	s_dda_wall
+{
+	double		camera_x;
+	//
+	t_vec2_d	raydir;
+	t_vec2		mappos;
+	t_vec2		step;
+	int			side;
+
+	t_vec2_d	sidedist;
+	t_vec2_d	deltadist;
+	double		perpdist;
+	double		wallx;
+
+}				t_dda_wall;
+
 typedef struct	s_meta
 {
 	char		*arg;
@@ -219,4 +249,6 @@ t_cast			ft_get_sprt_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, t_vec2_d *dir);
 char			*ft_strnjoin(char *s1, char *s2, int n);
 int				ft_strclen(char *s, char c);
 char			*ft_strldup(const char *s1, int n);
+void    ft_dda_walls(t_meta *md, t_img *img);
+void    ft_dda_sprites(t_meta *md, t_img *img);
 #endif
