@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/17 22:00:39 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/18 22:41:57 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,12 @@ typedef	struct	s_map
 	char		*unp;
 }				t_map;
 
+typedef struct	s_sprite
+{
+	t_vec2		pos;
+	double		dist;
+}				t_sprite;
+
 typedef struct	s_meta
 {
 	char		*arg;
@@ -135,7 +141,7 @@ typedef struct	s_meta
 	t_vec2		res;
 	t_vec2_d	pos;
 	double		*z_buf;
-	t_vec2		*spritepos;
+	t_sprite	*sprite;
 	int			spritecount;
 	void		*mlx;
 	void		*win;
@@ -161,6 +167,7 @@ t_tex			ft_load_img(t_meta *md, char *str);
 t_img			ft_load_frame(t_meta *md);
 void			ft_init_mlx(t_meta *md);
 void			ft_set_pos(t_meta *md);
+void    		ft_get_spritepos(t_meta *md);
 
 /*
 ** Functions that free etc.

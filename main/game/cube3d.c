@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:52:25 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/17 22:12:43 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/18 22:43:40 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,6 @@ int		main(int argc, char **argv)
 	ft_init_mlx(&md);
 	ft_printf("All Checks completed!\n");
 
-	md.z_buf = malloc(sizeof(double) * 1080);
-	md.spritepos = malloc(sizeof(t_vec2) * 2);
-	md.spritepos[0] = ft_vecmrg(2, 2);
-	// md.spritepos[1] = ft_vecmrg(2, 2);
-	md.spritecount = 2;
 	md.plane.x = 0;
 	md.plane.y = -0.66;
 	md.dir.x = -1;

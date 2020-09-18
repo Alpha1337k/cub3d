@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 22:46:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 16:37:18 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/18 22:41:23 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ t_meta		ft_parse_data(char *path, t_meta md)
 		if (md.map.status != 1)
 			free(line);
 	}
+	ft_get_spritepos(&md);
+	md.z_buf = malloc(sizeof(double) * md.res.x);
 	ft_printf("All data has been read!\n");
 	if (md.map.status == 1)
 		ft_set_pos(&md);
