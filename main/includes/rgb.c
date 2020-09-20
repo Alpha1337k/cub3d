@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/05 00:20:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/15 21:56:07 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 21:53:22 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ unsigned int	ft_rtoi(char *s)
 	rgb.g = ft_set_nmb(s, &rgb.a);
 	s = ft_move_tnmb(s);
 	rgb.b = ft_set_nmb(s, &rgb.a);
+	while (ft_isnum(*s))
+		s++;
+	if (*s != 0)
+		rgb.a = 0;
 	return (ft_rgb_to_int(rgb));
 }
 

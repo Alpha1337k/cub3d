@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/04 17:10:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 13:54:04 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 22:16:20 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,12 @@ int		ft_flood_map(char **map, t_vec2 pos, int dir, t_vec2 dm)
 	x = 0;
 	rval = 0;
 	pos = ft_change_pos(pos, dir);
+	ft_print_map_flood(map);
+	printf("\n");
+	usleep(3000);
 	if ((map[pos.y] != 0 && (int)ft_strlen(map[pos.y]) > pos.x) && \
 		(map[pos.y][pos.x] == 'A' || map[pos.y][pos.x] == '1'))
-		return (0);
+		return (1);
 	if (pos.x >= dm.x || map[pos.y] == 0 || map[pos.y][pos.x] == ' ' || \
 		map[pos.y][pos.x] == 0 || pos.y == 0 || pos.x == 0 || \
 			(int)ft_strlen(map[pos.y]) < pos.x)
@@ -108,6 +111,9 @@ int		ft_init_flood(t_meta *md)
 		return (2);
 	rval = ft_flood_map(map, pos, 0, \
 	ft_vecmrg(md->map.width, md->map.height));
+	if (rval == 1)
+		rval = ft_flood_map(map, pos, 1, \
+		ft_vecmrg(md->map.width, md->map.height));
 	ft_freemap(map, md->map.height + 1);
 	return (rval);
 }

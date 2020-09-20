@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 22:14:31 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 23:06:16 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 20:42:42 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_cast	ft_cast_ray(t_meta *md, t_cast *sprite, t_vec2_d dir, t_vec2 *t)
 	{
 		rayval = ft_trace_ray(&ray, &dir, t, md);
 		if (rayval == '2' && sprite->len == 0)
-			*sprite = ft_get_sprt_data(md, &ray, t, &dir);
+			*sprite = ft_get_cast_data(md, &ray, t, 1);
 	}
 	return (ft_get_cast_data(md, &ray, t, 0));
 }

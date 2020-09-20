@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/19 00:21:19 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 20:59:31 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ typedef struct	s_dda_sprite
 	t_vec2_d	transform;
 	t_vec2		spritescreen;
 	int			movescreen;
+	int			tex_x;
 
 }				t_dda_sprite;
 
@@ -243,12 +244,20 @@ t_cast			ft_cast_ray(t_meta *md, t_cast *sprite, t_vec2_d dir, \
 void			ft_draw_vline(int x, t_vec2 c, t_img *img, t_meta *md);
 t_cast			ft_get_cast_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, int spr);
 t_cast			ft_get_sprt_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, t_vec2_d *dir);
+
+/*
+** Drawing DDA
+*/
+void    		ft_dda_walls(t_meta *md, t_img *img);
+void    		ft_dda_sprites(t_meta *md, t_img *img);
+void			ft_calculate_dda(t_dda_wall *dw, t_meta *md, t_vec3 *coords);
+void			ft_setup_dda(t_dda_wall *dw, t_meta *md);
+void			ft_dda(t_dda_wall *dw, t_meta *md);
 /*
 ** Libft Addons?
 */
 char			*ft_strnjoin(char *s1, char *s2, int n);
 int				ft_strclen(char *s, char c);
 char			*ft_strldup(const char *s1, int n);
-void    ft_dda_walls(t_meta *md, t_img *img);
-void    ft_dda_sprites(t_meta *md, t_img *img);
+
 #endif

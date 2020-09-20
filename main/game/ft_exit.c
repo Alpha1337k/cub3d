@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/04 18:04:21 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 16:40:22 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 21:20:07 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int		ft_exit(t_meta *md)
 		mlx_destroy_window(md->mlx, md->win);
 	if (md->map.status == 1)
 		ft_freemap(md->map.val, md->map.height + 1);
+	if (md->z_buf)
+		free(md->z_buf);
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 22:46:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/18 22:41:23 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 22:27:12 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ t_vec2		ft_get_res(t_meta *md, char *line)
 	while (ft_isnum(*line) && *line)
 		line++;
 	rval.y = ft_atoi(line);
+	line++;
+	while (ft_isnum(*line) && *line)
+		line++;
+	if (*line != 0)
+		ft_throw_error("more arguments than needed used for res", md);
 	if (!LINUX)
 	{
 		mlx_get_screen_size(md, &tempval.x, &tempval.y);
@@ -49,16 +54,38 @@ t_vec2		ft_get_res(t_meta *md, char *line)
 	return (rval);
 }
 
+void		ft_check_double(char *line, t_meta *md)
+{
+	if (*line == 0 || !line)
+		return ;
+	if (ft_strnstr(line, "R ", 2) && md->res.x && md->res.y)
+		ft_throw_error("double inclusion of R.",md);
+	else if (ft_strnstr(line, "F ", 2) && md->fc[0])
+		ft_throw_error("double inclusion of F.",md);
+	else if (ft_strnstr(line, "C ", 2) && md->fc[1])
+		ft_throw_error("double inclusion of C.",md);
+	else if (ft_strnstr(line, "NO ", 3)&& md->tx[NO].i.addr)
+		ft_throw_error("double inclusion of NO.",md);
+	else if (ft_strnstr(line, "SO ", 3)&& md->tx[SO].i.addr)
+		ft_throw_error("double inclusion of SO.",md);
+	else if (ft_strnstr(line, "WE ", 3) && md->tx[WE].i.addr)
+		ft_throw_error("double inclusion of WE.",md);
+	else if (ft_strnstr(line, "EA ", 3)&& md->tx[EA].i.addr)
+		ft_throw_error("double inclusion of EA.",md);
+	else if (ft_strnstr(line, "S ", 3) && md->tx[SP].i.addr)
+		ft_throw_error("double inclusion of S.",md);
+}
+
 void		ft_parse_switch(char *line, t_meta *data, int fd)
 {
+	if (*line == 0 || !line)
+		return ;
 	if (ft_strnstr(line, "R ", 2))
 		data->res = ft_get_res(data, line);
 	else if (ft_strnstr(line, "F ", 2))
 		data->fc[0] = ft_rtoi(line + 2);
 	else if (ft_strnstr(line, "C ", 2))
 		data->fc[1] = ft_rtoi(line + 2);
-	else if (ft_strnstr(line, "1", ft_strlen(line)))
-		data->map = ft_get_map(line, fd);
 	else if (ft_strnstr(line, "NO ", 3))
 		data->tx[NO] = ft_load_img(data, line + 3);
 	else if (ft_strnstr(line, "SO ", 3))
@@ -69,6 +96,10 @@ void		ft_parse_switch(char *line, t_meta *data, int fd)
 		data->tx[EA] = ft_load_img(data, line + 3);
 	else if (ft_strnstr(line, "S ", 3))
 		data->tx[SP] = ft_load_img(data, line + 2);
+	else if (ft_strnstr(line, "1111", ft_strlen(line)))
+		data->map = ft_get_map(line, fd);
+	else
+		ft_throw_error("invalid item!", data);
 }
 
 t_meta		ft_parse_data(char *path, t_meta md)
@@ -87,15 +118,18 @@ t_meta		ft_parse_data(char *path, t_meta md)
 	while (ret > 0 && md.map.status != 1)
 	{
 		ret = get_next_line(fd, &line);
+		ft_check_double(line, &md);
 		ft_parse_switch(line, &md, fd);
 		if (md.map.status != 1)
 			free(line);
 	}
-	ft_get_spritepos(&md);
-	md.z_buf = malloc(sizeof(double) * md.res.x);
 	ft_printf("All data has been read!\n");
-	if (md.map.status == 1)
+	if (md.map.status)
+	{
+		ft_get_spritepos(&md);
+		md.z_buf = malloc(sizeof(double) * md.res.x);
 		ft_set_pos(&md);
+	}
 	md.init = TRUE;
 	return (md);
 }

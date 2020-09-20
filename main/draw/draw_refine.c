@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 22:00:03 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/17 18:53:19 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 20:55:36 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,30 +78,6 @@ t_cast			ft_get_cast_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, int spr)
 		rval.dir = ft_get_dir(md, ray, t->y);
 	else
 		rval.dir = SP;
-	rval.x_of = ft_get_xof(md, ray, t->y, rval.dir);
-	return (rval);
-}
-
-t_vec2_d		ft_get_spr_impact(t_meta *md, t_vec2_d *ray, t_vec2_d *dir)
-{
-	// get center spprite
-
-	// while ()
-	// {
-	// 	/* code */
-	// }
-	(void)dir;
-	(void)md;
-	return (*ray);
-}
-
-t_cast			ft_get_sprt_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, t_vec2_d *dir)
-{
-	t_cast rval;
-
-	rval.dir = SP;
-	*ray = ft_get_spr_impact(md, ray, dir);
-	rval.len = ft_get_len(md, ray, t);
 	rval.x_of = ft_get_xof(md, ray, t->y, rval.dir);
 	return (rval);
 }

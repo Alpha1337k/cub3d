@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 04:51:54 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/17 20:32:33 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 20:25:42 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int		ft_move_player(t_meta *md)
 		}
 		// else if (md->keydown[x] == KEYPRESS_D)
 		// 	ft_move(md, ft_atc(md->angle + 90));
-		else if (md->keydown[x] == KEYPRESS_L)
+		else if (md->keydown[x] == KEYPRESS_R)
 		{
 			md->angle += 2;		
 			double oldDirX = md->dir.x;
@@ -101,7 +101,7 @@ int		ft_move_player(t_meta *md)
 			md->plane.x = md->plane.x * cos(-rotSpeed) - md->plane.y * sin(-rotSpeed);
 			md->plane.y = oldPlaneX * sin(-rotSpeed) + md->plane.y * cos(-rotSpeed);
 		}
-		else if (md->keydown[x] == KEYPRESS_R)
+		else if (md->keydown[x] == KEYPRESS_L)
 		{
 			md->angle += 2;
 			//both camera direction and camera plane must be rotated

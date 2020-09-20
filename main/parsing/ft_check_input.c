@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/25 23:27:21 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/06/24 16:33:55 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/20 21:59:39 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ int			ft_check_fc(int *fc)
 	return (0);
 }
 
+int			ft_mapclean(char *unp)
+{
+	while (*unp != 0)
+	{
+		if (*unp != '0' && *unp != '1' && *unp != ' ' \
+			&& *unp != '\n' && *unp != '2' && \
+			*unp != 'N' && *unp != 'E' && *unp != 'S' && *unp != 'W')
+			return (1);
+		unp++;
+	}
+	return (0);
+}
+
 int			ft_check_input(t_meta *md)
 {
 	if (md->res.x <= 0 || md->res.y <= 0)
@@ -56,6 +69,8 @@ int			ft_check_input(t_meta *md)
 		return (ft_throw_error("Textured not loaded, missing?", md));
 	if (md->pos.x == -1 && md->pos.y == -1)
 		return (ft_throw_error("No player position defined. Double?", md));
+	if (ft_mapclean(md->map.unp) == 1)
+		return (ft_throw_error("Unknown characters in map", md));
 	if (md->map.val == 0 || ft_init_flood(md) == 2)
 		return (ft_throw_error("Map not fully enclosed!", md));
 	return (1);
