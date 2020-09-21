@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/04 17:10:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:35:19 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/21 20:47:34 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ int		ft_init_flood(t_meta *md)
 		ft_vecmrg(md->map.width, md->map.height));
 		x++;
 	}
-	
 	ft_freemap(map, md->map.height + 1);
 	return (rval);
 }
