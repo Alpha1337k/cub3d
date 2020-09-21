@@ -6,15 +6,15 @@
 #    By: alpha_1337 <alpha_1337@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/10 04:46:52 by alpha_1337    #+#    #+#                  #
-#    Updated: 2020/09/20 20:42:54 by okruitho      ########   odam.nl          #
+#    Updated: 2020/09/21 20:25:38 by okruitho      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
-
 
 
 SRC =	main/parsing/ft_check_input.c	\
 		main/parsing/ft_check_map.c		\
 		main/parsing/ft_get_pos.c		\
+		main/parsing/ft_get_dir.c		\
 		main/parsing/ft_init_mlx.c		\
 		main/parsing/ft_load_image.c	\
 		main/parsing/ft_parse_input.c	\
@@ -35,13 +35,15 @@ FINAL = 	main/drawnew/algorithm.c		\
 			main/drawnew/sprite.c			\
 			main/drawnew/wall.c				\
 			main/drawnew/wall_dda.c			\
+			main/game/move.c				\
+			main/game/move1.c				\
 
 LEGACY =	main/draw/algorithm.c			\
 			main/draw/draw_distance.c		\
 			main/draw/draw_refine.c			\
 			main/draw/draw_wall.c			\
 			main/draw/draw.c				\
-
+			main/game/move_legacy.c			\
 
 
 NAME = cub3D
@@ -88,7 +90,7 @@ legacy:
 	@$(MAKE) -C libft/
 	@$(MAKE) -C mlx-mac/
 	@gcc -o $(NAME) $(SRC) $(LEGACY) $(GNL) $(PRINTF) $(LIBFT) $(MLX) \
-		$(MACLIBS) $(FLAGS)
+		$(MACLIBS) $(FLAGS) -D LEGACY=1
 clean:
 	@rm -rf printf/*.o
 	@rm -rf gnl/*.o

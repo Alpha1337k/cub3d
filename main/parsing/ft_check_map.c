@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/04 17:10:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 22:16:20 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/21 20:35:19 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,6 @@ int		ft_flood_map(char **map, t_vec2 pos, int dir, t_vec2 dm)
 	x = 0;
 	rval = 0;
 	pos = ft_change_pos(pos, dir);
-	ft_print_map_flood(map);
-	printf("\n");
-	usleep(3000);
 	if ((map[pos.y] != 0 && (int)ft_strlen(map[pos.y]) > pos.x) && \
 		(map[pos.y][pos.x] == 'A' || map[pos.y][pos.x] == '1'))
 		return (1);
@@ -101,7 +98,10 @@ int		ft_init_flood(t_meta *md)
 	char	**map;
 	t_vec2	pos;
 	int		rval;
+	int		x;
 
+	rval = 0;
+	x = 0;
 	pos.x = md->pos.x;
 	pos.y = md->pos.y;
 	if (ft_doublenl(md->map.unp) == 1)
@@ -109,11 +109,13 @@ int		ft_init_flood(t_meta *md)
 	map = ft_split(md->map.unp, '\n');
 	if (map == 0)
 		return (2);
-	rval = ft_flood_map(map, pos, 0, \
-	ft_vecmrg(md->map.width, md->map.height));
-	if (rval == 1)
-		rval = ft_flood_map(map, pos, 1, \
+	while (rval != 2 && x < 8)
+	{
+		rval = ft_flood_map(map, pos, x, \
 		ft_vecmrg(md->map.width, md->map.height));
+		x++;
+	}
+	
 	ft_freemap(map, md->map.height + 1);
 	return (rval);
 }

@@ -6,23 +6,11 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/08 18:22:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 19:58:56 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/21 20:25:08 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube3d.h"
-
-void	ft_set_pos_ang(t_meta *md, char val)
-{
-	if (val == 'N')
-		md->angle = -90;
-	else if (val == 'E')
-		md->angle = 0;
-	else if (val == 'S')
-		md->angle = 90;
-	else if (val == 'W')
-		md->angle = 180;
-}
 
 int		ft_set_match(t_meta *md, t_vec2 pos, int dbl)
 {

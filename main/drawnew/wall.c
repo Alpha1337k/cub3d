@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/18 22:47:51 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 20:56:56 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/21 19:13:25 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,3 @@ void	ft_draw_walls(t_meta *md, t_img *img)
 	ft_dda_walls(md, img);
 	ft_dda_sprites(md, img);
 }
-

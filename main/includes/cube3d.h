@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 20:59:31 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/21 20:26:13 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 
 # ifndef LINUX
 #  define LINUX 0
+# endif
+
+# ifndef LEGACY
+#  define LEGACY 0
 # endif
 
 # if LINUX == 1
@@ -198,6 +202,7 @@ t_tex			ft_load_img(t_meta *md, char *str);
 t_img			ft_load_frame(t_meta *md);
 void			ft_init_mlx(t_meta *md);
 void			ft_set_pos(t_meta *md);
+void			ft_set_pos_ang(t_meta *md, char val);
 void    		ft_get_spritepos(t_meta *md);
 
 /*
@@ -221,6 +226,8 @@ unsigned int	ft_get_color(char *line);
 int				ft_set_keydown(int key, t_meta *md);
 int				ft_set_keyup(int key, t_meta *md);
 int				ft_move_player(t_meta *md);
+void			ft_turn_right(t_meta *md);
+void			ft_turn_left(t_meta *md);
 
 /*
 ** Conversions
