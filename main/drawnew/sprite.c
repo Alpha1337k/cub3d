@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/18 23:24:10 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 21:18:29 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 07:45:04 by alpha_1337    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void		ft_draw_sprite(t_meta *md, t_dda_sprite *sp, t_img *img, t_vec3 *c)
 	while (c->x < drawparam.y)
 	{
 		sp->tex_x = (int)(256 * (c->x -  \
-		(-sprite_w / 2 + sp->spritescreen.x)) * 64 / sprite_w) / 256;
+		(-sprite_w / 2 + sp->spritescreen.x)) * md->tx[SP].p.x / sprite_w) / 256;
 		if (sp->transform.y > 0 && c->x > 0 && c->x <  \
 		md->res.x && sp->transform.y < md->z_buf[c->x])
 		{
