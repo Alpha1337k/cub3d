@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 17:48:54 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 22:11:48 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 20:27:54 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_img	ft_load_frame(t_meta *md)
 {
 	t_img rval;
 
+	if (md->res.x > 16384 || md->res.y > 16384)
+		ft_throw_error("Size is too big", md);
 	rval.img = mlx_new_image(md->mlx, md->res.x, md->res.y);
 	rval.addr = mlx_get_data_addr(rval.img, &rval.bits_per_pixel, \
 		&rval.line_length, &rval.endian);

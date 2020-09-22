@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/17 19:16:39 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/17 19:40:35 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 21:36:43 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,12 @@ void	ft_draw_vline(int x, t_vec2 c, t_img *img, t_meta *md)
 		clr = md->fc[0];
 	else
 		clr = md->fc[1];
-	while (y < c.y)
+	if (y >= md->res.y)
+		return ;
+	while (y < c.y && y < md->res.y)
 	{
-		ft_pixel_put(img, x, y, clr);
+		if (y < md->res.y && y >= 0)
+			ft_pixel_put(img, x, y, clr);
 		y++;
 	}
 }

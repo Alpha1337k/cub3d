@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 22:46:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:33:57 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 21:55:13 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ t_vec2		ft_get_res(t_meta *md, char *line)
 	t_vec2 rval;
 	t_vec2 tempval;
 
-	rval.x = ft_atoi(line + 2);
+	rval.x = ft_atol(line + 2);
 	while (ft_isnum(*line) == 0)
 		line++;
 	while (ft_isnum(*line) && *line)
 		line++;
-	rval.y = ft_atoi(line);
+	rval.y = ft_atol(line);
 	line++;
 	while (ft_isnum(*line) && *line)
 		line++;

@@ -5,8 +5,8 @@
 /*                                                     +:+                    */
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/18 23:24:10 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/22 07:45:04 by alpha_1337    ########   odam.nl         */
+/*   Created: 2020/09/22 19:56:47 by okruitho      #+#    #+#                 */
+/*   Updated: 2020/09/22 19:57:08 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,20 @@ void		ft_draw_sprite(t_meta *md, t_dda_sprite *sp, t_img *img, t_vec3 *c)
 {
 	t_cast	cst;
 	t_vec2	drawparam;
-	int		sprite_w;
+	int		spr_w;
 
-	sprite_w = abs((int)(md->res.y / (sp->transform.y))) / 1;
-	drawparam.x = -sprite_w / 2 + sp->spritescreen.x;
+	spr_w = abs((int)(md->res.y / (sp->transform.y))) / 1;
+	drawparam.x = -spr_w / 2 + sp->spritescreen.x;
 	if (drawparam.x < 0)
 		drawparam.x = 0;
-	drawparam.y = sprite_w / 2 + sp->spritescreen.x;
+	drawparam.y = spr_w / 2 + sp->spritescreen.x;
 	if (drawparam.y >= md->res.x)
 		drawparam.y = md->res.x - 1;
 	c->x = drawparam.x;
 	while (c->x < drawparam.y)
 	{
 		sp->tex_x = (int)(256 * (c->x -  \
-		(-sprite_w / 2 + sp->spritescreen.x)) * md->tx[SP].p.x / sprite_w) / 256;
+		(-spr_w / 2 + sp->spritescreen.x)) * md->tx[SP].p.x / spr_w) / 256;
 		if (sp->transform.y > 0 && c->x > 0 && c->x <  \
 		md->res.x && sp->transform.y < md->z_buf[c->x])
 		{

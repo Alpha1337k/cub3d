@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/08 18:22:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:25:08 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 21:37:53 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int		ft_set_match(t_meta *md, t_vec2 pos, int dbl)
 			return (-2);
 		}
 		ft_set_pos_ang(md, val);
-		md->pos.x = (double)pos.x + 0.5;
-		md->pos.y = (double)pos.y + 0.5;
+		md->pos.x = (double)pos.x + 0.51;
+		md->pos.y = (double)pos.y + 0.51;
 		return (1);
 	}
 	return (dbl);

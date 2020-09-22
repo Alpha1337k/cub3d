@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:26:13 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 22:31:13 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
+# include <limits.h>
 # include "../../printf/ft_printf.h"
 # include "../../gnl/get_next_line.h"
 # include "../../libft/libft.h"
@@ -148,12 +149,10 @@ typedef struct	s_dda_sprite
 typedef struct	s_dda_wall
 {
 	double		camera_x;
-	//
 	t_vec2_d	raydir;
 	t_vec2		mappos;
 	t_vec2		step;
 	int			side;
-
 	t_vec2_d	sidedist;
 	t_vec2_d	deltadist;
 	double		perpdist;
@@ -203,7 +202,7 @@ t_img			ft_load_frame(t_meta *md);
 void			ft_init_mlx(t_meta *md);
 void			ft_set_pos(t_meta *md);
 void			ft_set_pos_ang(t_meta *md, char val);
-void    		ft_get_spritepos(t_meta *md);
+void			ft_get_spritepos(t_meta *md);
 
 /*
 ** Functions that free etc.
@@ -250,13 +249,12 @@ t_cast			ft_cast_ray(t_meta *md, t_cast *sprite, t_vec2_d dir, \
 					t_vec2 *t);
 void			ft_draw_vline(int x, t_vec2 c, t_img *img, t_meta *md);
 t_cast			ft_get_cast_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, int spr);
-t_cast			ft_get_sprt_data(t_meta *md, t_vec2_d *ray, t_vec2 *t, t_vec2_d *dir);
 
 /*
 ** Drawing DDA
 */
-void    		ft_dda_walls(t_meta *md, t_img *img);
-void    		ft_dda_sprites(t_meta *md, t_img *img);
+void			ft_dda_walls(t_meta *md, t_img *img);
+void			ft_dda_sprites(t_meta *md, t_img *img);
 void			ft_calculate_dda(t_dda_wall *dw, t_meta *md, t_vec3 *coords);
 void			ft_setup_dda(t_dda_wall *dw, t_meta *md);
 void			ft_dda(t_dda_wall *dw, t_meta *md);
@@ -266,5 +264,6 @@ void			ft_dda(t_dda_wall *dw, t_meta *md);
 char			*ft_strnjoin(char *s1, char *s2, int n);
 int				ft_strclen(char *s, char c);
 char			*ft_strldup(const char *s1, int n);
+long long		ft_atol(const char *str);
 
 #endif

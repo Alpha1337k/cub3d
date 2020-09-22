@@ -6,7 +6,7 @@
 #    By: alpha_1337 <alpha_1337@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/10 04:46:52 by alpha_1337    #+#    #+#                  #
-#    Updated: 2020/09/21 20:25:38 by okruitho      ########   odam.nl          #
+#    Updated: 2020/09/22 21:52:34 by okruitho      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC =	main/parsing/ft_check_input.c	\
 		main/includes/print.c			\
 		main/includes/reset.c			\
 		main/includes/rgb.c				\
+		main/includes/ft_atol.c			\
 
 FINAL = 	main/drawnew/algorithm.c		\
 			main/drawnew/drawing.c			\
@@ -66,7 +67,7 @@ MACLIBS =  -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(FINAL)
 	@$(MAKE) -C printf/
 	@$(MAKE) -C gnl/
 	@$(MAKE) -C libft/
