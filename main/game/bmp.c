@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/06 19:34:21 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/08/04 18:14:45 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/09/22 08:02:50 by alpha_1337    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ void			ft_write_bmp(t_img *img, int fd, t_meta *md, int padding_size)
 
 	ft_bzero(padding, 3);
 	y = md->res.y - 1;
-	while (y > 0)
+	if (md->res.y == 1)
+		y = md->res.y;
+	while (y >= 0)
 	{
 		x = 0;
 		while (x < md->res.x)
