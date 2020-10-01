@@ -6,7 +6,7 @@
 #    By: alpha_1337 <alpha_1337@student.codam.nl      +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/10 04:46:52 by alpha_1337    #+#    #+#                  #
-#    Updated: 2020/09/22 21:52:34 by okruitho      ########   odam.nl          #
+#    Updated: 2020/10/01 12:53:55 by alpha_1337    ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ linux:
 	@gcc -O3 -o $(NAME) $(SRC) $(GNL) $(PRINTF) $(LIBFT) $(LINUXMLX) \
 		$(LINUXLIBS) -D LINUX=1
 
-legacy:
+legacy: fclean
 	@$(MAKE) -C printf/
 	@$(MAKE) -C gnl/
 	@$(MAKE) -C libft/

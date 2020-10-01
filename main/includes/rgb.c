@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/05 00:20:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 21:53:22 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/01 12:49:52 by alpha_1337    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int				ft_rgb_to_int(t_rgb clr)
 unsigned char	ft_set_nmb(char *s, unsigned char *err)
 {
 	int rval;
-
+	if (ft_isnum(*s) == 0)
+		*err = 0;
 	rval = atoi(s);
 	if (rval < 0 || rval > 255 || (rval == 0 && *s != '0'))
 		*err = 0;

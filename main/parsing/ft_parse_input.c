@@ -6,22 +6,22 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 22:46:26 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/22 21:55:13 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/01 12:52:01 by alpha_1337    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cube3d.h"
 
-int			ft_check_extention(char *line, char seperator)
+int			ft_check_extention(char *line)
 {
-	while (*line)
-	{
-		if (*line == seperator)
-			break ;
-		line++;
-	}
-	if (*line)
-		return (ft_strncmp(line, ".cub", 5));
+	int x;
+
+	x = ft_strlen(line);
+	if (x < 4)
+		return (-1);
+	x -= 4;
+	if (ft_strncmp(&line[x], ".cub", 5) == 0)
+		return (0);
 	return (-1);
 }
 
@@ -98,6 +98,8 @@ void		ft_parse_switch(char *line, t_meta *data, int fd)
 		data->tx[SP] = ft_load_img(data, line + 2);
 	else if (ft_strnstr(line, "111", ft_strlen(line)))
 		data->map = ft_get_map(line, fd);
+	else
+		ft_throw_error("Unknown item in file", data);
 }
 
 t_meta		ft_parse_data(char *path, t_meta md)
@@ -107,7 +109,7 @@ t_meta		ft_parse_data(char *path, t_meta md)
 	int			ret;
 
 	ret = 1;
-	if (ft_check_extention(path, '.') != 0)
+	if (ft_check_extention(path) != 0)
 		ft_throw_error("Bad file extention :|", &md);
 	fd = open(path, O_RDONLY);
 	if (fd == -1 || read(fd, 0, 0) == -1)

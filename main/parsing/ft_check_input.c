@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/25 23:27:21 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/20 21:59:39 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/01 12:31:12 by alpha_1337    ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int			ft_throw_error(char *s, t_meta *md)
 {
-	ft_printf("ERROR!\n%s\n", s);
+	ft_printf("Error\n%s\n", s);
 	ft_exit(md);
 	return (0);
 }
