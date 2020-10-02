@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:54:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/22 22:31:13 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/02 11:16:15 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CUBE3D_H
 # include <unistd.h>
 # include <fcntl.h>
+# include <limits.h>
 # include <stdio.h>
 # include <math.h>
 # include <limits.h>
@@ -143,7 +144,6 @@ typedef struct	s_dda_sprite
 	t_vec2		spritescreen;
 	int			movescreen;
 	int			tex_x;
-
 }				t_dda_sprite;
 
 typedef struct	s_dda_wall
@@ -157,7 +157,6 @@ typedef struct	s_dda_wall
 	t_vec2_d	deltadist;
 	double		perpdist;
 	double		wallx;
-
 }				t_dda_wall;
 
 typedef struct	s_meta

@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/04 20:52:25 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:45:32 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/02 09:38:22 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,9 @@ int		main(int argc, char **argv)
 	if (md.mlx == 0)
 		ft_throw_error("mlx failed to initialize", &md);
 	md = ft_parse_data(argv[1], md);
-	ft_print_meta(&md);
 	if (ft_check_input(&md) == 0)
 		ft_exit(&md);
 	ft_init_mlx(&md);
-	ft_printf("All Checks completed!\n");
 	ft_run_loops(&md);
 	return (0);
 }

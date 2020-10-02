@@ -6,7 +6,7 @@
 /*   By: okruitho <okruitho@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/04 17:10:32 by okruitho      #+#    #+#                 */
-/*   Updated: 2020/09/21 20:47:34 by okruitho      ########   odam.nl         */
+/*   Updated: 2020/10/02 09:41:22 by okruitho      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		ft_init_flood(t_meta *md)
 	x = 0;
 	pos.x = md->pos.x;
 	pos.y = md->pos.y;
-	if (ft_doublenl(md->map.unp) == 1)
+	if (ft_doublenl(md->map.unp) == 1 || pos.y == 0)
 		return (2);
 	map = ft_split(md->map.unp, '\n');
 	if (map == 0)
